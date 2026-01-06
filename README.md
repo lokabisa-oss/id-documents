@@ -1,34 +1,53 @@
 # id-documents
 
-This repository contains archived copies of official Indonesian government documents
-for public reference and reproducible data processing.
+This repository contains archived copies of original Indonesian government
+documents and public datasets for reference, auditability, and reproducible
+data processing.
+
+## Purpose
+
+- Preserve original source documents in their published form
+- Enable deterministic and reproducible data pipelines
+- Provide auditable references for downstream datasets (e.g. region-id)
+
+This repository stores **raw, immutable source files only**.
+No normalization, transformation, or interpretation is performed here.
 
 ## Scope
 
+Documents and datasets in this repository may originate from:
+
 - Ministry of Home Affairs (Kementerian Dalam Negeri)
-- Future additions: BPS, ATR/BPN, BIG, KPU
+- Provincial and national open data portals
+- Other official government institutions
 
-## Available Documents
+## Structure
 
-- **Kepmendagri 2025**
-  - Path: `kepmendagri/2025/kepmendagri-2025.pdf`
-  - Checksum: `SHA256SUMS`
+Documents are organized by source and year:
+
+`<source>/<dataset>/<year>/`
+
+Each dataset folder contains:
+
+- original files as published
+- a README describing the source and context
+- a `SHA256SUMS` file for integrity verification
 
 ## Usage
 
 Documents in this repository are intended to be consumed by automated pipelines
 (e.g. CI/CD, data builders, parsers).
-Consumers must verify document integrity using the provided SHA256 checksums.
+
+Consumers **must verify document integrity** using the provided SHA-256 checksums
+before processing.
 
 ## Disclaimer
 
-All documents are publicly available government publications.
-This repository does not claim ownership of the content.
+All documents in this repository are publicly available government publications.
+This repository does not claim ownership, authorship, or authority over the content.
 
 ## Attribution
 
-All documents in this repository originate from official publications of
-Kementerian Dalam Negeri Republik Indonesia (Kemendagri).
-
-This repository redistributes the documents for public reference and
-reproducible data processing purposes.
+All documents originate from their respective official publishers.
+Redistribution is provided solely for public reference and reproducible
+data processing purposes.
